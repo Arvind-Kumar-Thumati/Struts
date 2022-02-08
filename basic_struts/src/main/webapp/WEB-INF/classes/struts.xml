@@ -46,11 +46,11 @@
 
     <constant name="struts.devMode" value="true" />
 
-    <package name="default" extends="struts-default" namespace="/">
+    <!-- <package name="default" extends="struts-default" namespace="/">
         <action name="">
             <result>/index.jsp</result>
         </action>
-    </package>
+    </package> -->
 
 <!-- interceptor and action -->
 <!-- custom interceptor to throw 403 -->
@@ -58,7 +58,7 @@
 <!-- action : class and method -->
 <!-- struts to json plugin -->
 
-    <package name="default" extends="struts-default" namespace="/">
+    <package name="default" extends="struts-default"> <!--   namespace="/"> -->
         <action name="index">
             <result>/index.jsp</result>
         </action>
