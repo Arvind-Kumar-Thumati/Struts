@@ -38,11 +38,11 @@
 
        In this example, we create a package that defines a result: -->
 
-    <!-- <package name="myPlugin-default">
+    <package name="myPlugin-default">
         <result-types>
             <result-type name="myResult" class="com.struts_example.MyResult"/>
         </result-types>
-    </package>     -->
+    </package>    
 
     <constant name="struts.devMode" value="true" />
 
@@ -58,7 +58,7 @@
 <!-- action : class and method -->
 <!-- struts to json plugin -->
 
-    <package name="default" extends="struts-default"> <!--   namespace="/"> -->
+    <package name ="basicstruts2" extends="struts-default"> <!--   namespace="/"> -->
         <action name="index">
             <result>/index.jsp</result>
         </action>
