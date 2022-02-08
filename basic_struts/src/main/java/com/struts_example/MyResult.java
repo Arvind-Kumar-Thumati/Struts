@@ -39,7 +39,7 @@ public class MyResult implements Result {
      * @throws Exception if an error occurs when writing the text to the servlet output stream.
      */
     public void execute(ActionInvocation invocation) throws Exception {
-
+                
         HttpServletResponse response = ServletActionContext.getResponse();
         Writer writer = response.getWriter();
         writer.write("Hello");
