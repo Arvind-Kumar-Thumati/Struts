@@ -7,8 +7,9 @@
     <title>Home</title>
   </head>
   <body>      
-      Hello <s:property value="%{#session['uName']}"/><br>
-      <a href="<s:url action="/logoutAction"/>">LogOut</a>
+      Hello <s:property value="%{#session['uName']}"/><br> <!-- How this works ???-->
+      <a href="<s:url action='logoutAction' />">LogOut</a> <br><br>
+      <a href="<s:url action='showVisitsAction' />">ShowVisits</a>
     <h2><s:property value="messageStore.message" /></h2>
   </body>
 </html>

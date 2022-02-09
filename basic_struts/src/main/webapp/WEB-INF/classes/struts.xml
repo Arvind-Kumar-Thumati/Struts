@@ -56,14 +56,16 @@
 <!-- custom interceptor to throw 403 -->
 <!-- struts-json -->
 <!-- action : class and method -->
-<!-- struts to json plugin -->    
 
     <package name ="basicstruts2" extends="struts-default"> <!--   namespace="/"> -->
         <interceptors>
             <interceptor class="com.struts_example.LoginMVC.LoginInterceptor" name="loginInterceptor">
             </interceptor>
+            <interceptor class="com.struts_example.LoginMVC.addVisitsInterceptor" name="addVisitsInterceptor">
+            </interceptor>
             <interceptor-stack name="loginStack">
                 <interceptor-ref name="loginInterceptor"/>
+                <interceptor-ref name="addVisitsInterceptor"/>
                 <interceptor-ref name="defaultStack"/>
             </interceptor-stack>
         </interceptors>
@@ -71,6 +73,7 @@
 
         <global-results>
             <result name="login"> login.jsp </result>
+            <result name="403"> error403.jsp </result>
         </global-results>
 
         <action name="index">
@@ -92,6 +95,7 @@
         <!-- REDIRECT TO HOME -->
         <action name="homeAction" class="com.struts_example.LoginMVC.action.LoginAction" method="home">
             <interceptor-ref name="loginStack" />
+            <!-- <interceptor-ref name="addVisitorsInterceptor" /> -->
             <!-- <result name="login"> /login.jsp</result>              -->
             <result name="success" type="redirect"> /home.jsp </result>            
         </action>
@@ -99,6 +103,21 @@
         <!-- LOGOUT -->
         <action name="logoutAction" class="com.struts_example.LoginMVC.action.LoginAction" method="logOut">
             <result name="success">/login.jsp</result>
+        </action>
+    </package>
+
+    
+    <package name="json" namespace = "/" extends="json-default">
+        <!-- Show Visits data using json -->
+        <action name="showVisitsAction" class="com.struts_example.LoginMVC.action.LoginAction" method="showVisits">
+            <!-- <interceptor-ref name="addVisitsInterceptor" /> -->
+            <result type="json">
+                <param name="excludeProperties">
+                    pass,
+                    <!-- session,
+                    uName -->
+                </param>
+            </result>
         </action>
 
     </package>
